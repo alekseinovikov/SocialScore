@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(":provider:service-api")
+    implementation project(":api:client-api")
+}

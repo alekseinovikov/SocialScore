@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(":api:server-api")
+    implementation project(":api:proto")
+    api project(":transport:kafka")
+}

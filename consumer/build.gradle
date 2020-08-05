@@ -1,0 +1,11 @@
+plugins {
+    id "org.springframework.boot" version "${spring_boot_version}"
+}
+
+dependencies {
+    runtimeOnly project(":consumer:populator-console")
+    runtimeOnly project(":consumer:populator-redis")
+    runtimeOnly project(":consumer:service")
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+}

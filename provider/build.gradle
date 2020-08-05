@@ -1,0 +1,11 @@
+plugins {
+    id "org.springframework.boot" version "${spring_boot_version}"
+}
+
+dependencies {
+    runtimeOnly project(":provider:rest")
+    runtimeOnly project(":provider:service-impl")
+    runtimeOnly project(":api:client-impl")
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+}

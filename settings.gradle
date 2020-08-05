@@ -1,1 +1,23 @@
 rootProject.name = 'social-score-service'
+
+include ':api'
+include ':api:proto'
+include ':api:client-api'
+include ':api:client-impl'
+include ':api:server-api'
+include ':api:server-impl'
+
+include ':provider'
+include ':provider:rest'
+include ':provider:service-api'
+include ':provider:service-impl'
+
+include ':consumer'
+include ':consumer:service'
+include ':consumer:populator-api'
+include ':consumer:populator-console'
+include ':consumer:populator-redis'
+
+include ':transport'
+include ':transport:kafka'
+include ':transport:redis'
