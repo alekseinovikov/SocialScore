@@ -6,6 +6,7 @@ buildscript {
 
 plugins {
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id "com.dorongold.task-tree" version "1.5"
 }
 
 subprojects {
@@ -28,11 +29,24 @@ subprojects {
         }
     }
 
+    sourceSets {
+        intTest {
+            compileClasspath += sourceSets.main.output
+            runtimeClasspath += sourceSets.main.output
+        }
+    }
+
     dependencies {
         compileOnly 'org.projectlombok:lombok'
+
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         annotationProcessor 'org.projectlombok:lombok'
+
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+
+        intTestImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
     }
@@ -43,8 +57,30 @@ subprojects {
         }
     }
 
+    configurations {
+        intTestImplementation.extendsFrom implementation
+        intTestRuntimeOnly.extendsFrom runtimeOnly
+    }
+
     test {
-        useJUnitPlatform()
+        useJUnitPlatform {
+            excludeTags("integration")
+            includeTags("unit")
+        }
+    }
+
+    //Independent of check task to run it separately as heavy tests with testcontainers
+    task integrationTest(type: Test) {
+        description = 'Runs integration tests'
+        group = 'verification'
+
+        testClassesDirs = sourceSets.intTest.output.classesDirs
+        classpath = sourceSets.intTest.runtimeClasspath
+
+        useJUnitPlatform {
+            includeTags("integration")
+            excludeTags("unit")
+        }
     }
 
 }
