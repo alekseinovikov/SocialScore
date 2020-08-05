@@ -1,4 +1,4 @@
-name: BUILD (Ubuntu 20.04)
+name: TESTS (Ubuntu 20.04)
 
 on: [push]
 
