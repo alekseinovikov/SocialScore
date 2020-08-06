@@ -1,8 +1,12 @@
 package com.socialscore.provider.rest.controller;
 
-import com.socialscore.provider.rest.configuration.SocialScoreProviderRestConfiguration;
-import com.socialscore.provider.service.api.PersonScoreProcessor;
-import com.socialscore.provider.service.api.dto.PersonData;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,12 +17,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import com.socialscore.provider.rest.configuration.SocialScoreProviderRestConfiguration;
+import com.socialscore.provider.rest.request.PersonRegisterRequest;
+import com.socialscore.provider.service.api.PersonScoreProviderService;
 
 @Tag("unit")
 
@@ -30,7 +31,7 @@ class PersonRegisterControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private PersonScoreProcessor personScoreProcessor;
+    private PersonScoreProviderService personScoreProviderService;
 
 
     @Test
@@ -45,15 +46,15 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string(""));
+               //assert
+               .andDo(print())
+               .andExpect(status().isOk())
+               .andExpect(content().string(""));
 
-        verify(personScoreProcessor, Mockito.times(1)).process(new PersonData("firstName", "lastName", 33));
+        verify(personScoreProviderService, Mockito.times(1)).process(new PersonRegisterRequest("firstName", "lastName", 33));
     }
 
     @Test
@@ -63,14 +64,14 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().isBadRequest());
+               //assert
+               .andDo(print())
+               .andExpect(status().isBadRequest());
 
-        verifyNoInteractions(personScoreProcessor);
+        verifyNoInteractions(personScoreProviderService);
     }
 
     @Test
@@ -84,14 +85,14 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_PDF_VALUE)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_PDF_VALUE)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().is(415));
+               //assert
+               .andDo(print())
+               .andExpect(status().is(415));
 
-        verifyNoInteractions(personScoreProcessor);
+        verifyNoInteractions(personScoreProviderService);
     }
 
     @Test
@@ -106,14 +107,14 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().isBadRequest());
+               //assert
+               .andDo(print())
+               .andExpect(status().isBadRequest());
 
-        verifyNoInteractions(personScoreProcessor);
+        verifyNoInteractions(personScoreProviderService);
     }
 
     @Test
@@ -128,14 +129,14 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().isBadRequest());
+               //assert
+               .andDo(print())
+               .andExpect(status().isBadRequest());
 
-        verifyNoInteractions(personScoreProcessor);
+        verifyNoInteractions(personScoreProviderService);
     }
 
     @Test
@@ -150,14 +151,14 @@ class PersonRegisterControllerTest {
 
         //act
         mockMvc.perform(post("/person/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(request))
 
-                //assert
-                .andDo(print())
-                .andExpect(status().isBadRequest());
+               //assert
+               .andDo(print())
+               .andExpect(status().isBadRequest());
 
-        verifyNoInteractions(personScoreProcessor);
+        verifyNoInteractions(personScoreProviderService);
     }
 
 }

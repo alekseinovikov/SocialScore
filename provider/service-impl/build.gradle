@@ -1,4 +1,6 @@
 dependencies {
     implementation project(":provider:service-api")
     implementation project(":api:client-api")
+
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
 }

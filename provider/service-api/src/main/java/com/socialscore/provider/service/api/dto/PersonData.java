@@ -1,12 +1,11 @@
 package com.socialscore.provider.service.api.dto;
 
-import lombok.Value;
+public interface PersonData {
 
-@Value
-public class PersonData {
+    String getFirstName();
 
-    String firstName;
-    String lastName;
-    int age;
+    String getLastName();
+
+    int getAge();
 
 }
