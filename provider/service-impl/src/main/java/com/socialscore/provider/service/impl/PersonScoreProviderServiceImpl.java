@@ -6,7 +6,7 @@ import com.socialscore.client.api.SocialScorePublisherClient;
 import com.socialscore.client.api.dto.SocialScoreParams;
 import com.socialscore.provider.service.api.PersonScoreProviderService;
 import com.socialscore.provider.service.api.dto.PersonData;
-import com.socialscore.provider.service.impl.properties.CalculationPropertiesProvider;
+import com.socialscore.provider.service.impl.params.CalculationParamsProvider;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,13 +15,13 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class PersonScoreProviderServiceImpl implements PersonScoreProviderService {
 
-    private final CalculationPropertiesProvider propertiesProvider;
+    private final CalculationParamsProvider paramsProvider;
     private final SocialScorePublisherClient publisher;
 
 
     @Override
     public void process(final PersonData data) {
-        final double seed = propertiesProvider.getSeed();
+        final double seed = paramsProvider.getSeed();
         final SocialScoreParams params = createParams(data, seed);
 
         publisher.publish(params);

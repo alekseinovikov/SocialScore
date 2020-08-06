@@ -3,4 +3,5 @@ dependencies {
     implementation project(":api:client-api")
 
     implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation("com.github.ben-manes.caffeine:caffeine:${caffeine_version}")
 }

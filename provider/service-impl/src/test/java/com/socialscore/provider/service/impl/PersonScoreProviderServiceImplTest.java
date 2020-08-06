@@ -13,14 +13,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.socialscore.client.api.SocialScorePublisherClient;
 import com.socialscore.provider.service.api.dto.PersonData;
-import com.socialscore.provider.service.impl.properties.CalculationPropertiesProvider;
+import com.socialscore.provider.service.impl.params.CalculationParamsProvider;
 
 @Tag("unit")
 @ExtendWith(MockitoExtension.class)
 class PersonScoreProviderServiceImplTest {
 
     @Mock
-    private CalculationPropertiesProvider propertiesProvider;
+    private CalculationParamsProvider propertiesProvider;
 
     @Mock
     private SocialScorePublisherClient publisher;
