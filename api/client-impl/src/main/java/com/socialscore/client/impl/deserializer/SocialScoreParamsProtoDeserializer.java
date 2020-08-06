@@ -1,25 +1,18 @@
 package com.socialscore.client.impl.deserializer;
 
-import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.common.serialization.Serializer;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 
-public class SocialScoreParamsProtoDeserializer implements Deserializer<SocialScoreParamsProto> {
+public class SocialScoreParamsProtoDeserializer implements Serializer<SocialScoreParamsProto> {
 
     @Override
-    public SocialScoreParamsProto deserialize(final String topic, final byte[] data) {
-        try {
-            return SocialScoreParamsProto.parseFrom(data);
-        } catch (InvalidProtocolBufferException e) {
-            log.error("Can't deserialize SocialScoreParamsProto: ", e);
-        }
-
-        return null;
+    public byte[] serialize(final String topic, final SocialScoreParamsProto data) {
+        return data.toByteArray();
     }
 
 }

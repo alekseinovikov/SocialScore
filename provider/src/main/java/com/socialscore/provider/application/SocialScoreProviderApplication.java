@@ -1,4 +1,4 @@
-package com.socialscore.provider;
+package com.socialscore.provider.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

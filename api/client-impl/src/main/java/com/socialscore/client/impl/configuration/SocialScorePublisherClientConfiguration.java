@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +15,23 @@ import org.springframework.kafka.core.ProducerFactory;
 
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
 import com.socialscore.client.impl.SocialScorePublisherClientImpl;
+import com.socialscore.client.impl.configuration.properties.KafkaProperties;
+import com.socialscore.client.impl.configuration.properties.KafkaPropertiesImpl;
 import com.socialscore.client.impl.deserializer.SocialScoreParamsProtoDeserializer;
 
 @ComponentScan(basePackageClasses = SocialScorePublisherClientImpl.class)
 @Configuration
 public class SocialScorePublisherClientConfiguration {
+
+    @ConditionalOnMissingBean
+    @Bean
+    public KafkaProperties kafkaProperties(final org.springframework.boot.autoconfigure.kafka.KafkaProperties kafkaPropertiesSpring) {
+        final KafkaPropertiesImpl kafkaProperties = new KafkaPropertiesImpl();
+
+        kafkaProperties.setBootstrapServers(kafkaPropertiesSpring.getBootstrapServers());
+
+        return kafkaProperties;
+    }
 
     @Bean
     public ProducerFactory<String, SocialScoreParamsProto> socialScoreProducer(final KafkaProperties kafkaProperties) {
