@@ -5,7 +5,7 @@ protobuf {
         artifact = "com.google.protobuf:protoc:${google_protobuf_version}"
     }
 
-    generatedFilesBaseDir = "$projectDir/src/generated"
+    generatedFilesBaseDir = "$projectDir/gen"
 }
 
 clean {
@@ -13,13 +13,13 @@ clean {
 }
 
 dependencies {
-    compileOnly("com.google.protobuf:protobuf-java:${google_protobuf_version}")
+    api("com.google.protobuf:protobuf-java:${google_protobuf_version}")
 }
 
 sourceSets {
     main {
         java {
-            srcDirs += "${protobuf.generatedFilesBaseDir}"
+            srcDirs += "${protobuf.generatedFilesBaseDir}/main/java"
         }
     }
 }

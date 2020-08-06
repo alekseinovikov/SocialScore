@@ -19,5 +19,4 @@ include ':consumer:populator-console'
 include ':consumer:populator-redis'
 
 include ':transport'
-include ':transport:kafka'
 include ':transport:redis'
