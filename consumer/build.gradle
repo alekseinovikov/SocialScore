@@ -6,6 +6,7 @@ dependencies {
     runtimeOnly project(":consumer:populator-console")
     runtimeOnly project(":consumer:populator-redis")
     runtimeOnly project(":consumer:service")
+    runtimeOnly project(":api:server-impl")
 
     implementation 'org.springframework.boot:spring-boot-starter'
 }

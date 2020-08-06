@@ -17,7 +17,7 @@ import com.socialscore.client.api.proto.SocialScoreParamsProto;
 import com.socialscore.client.impl.SocialScorePublisherClientImpl;
 import com.socialscore.client.impl.configuration.properties.KafkaProperties;
 import com.socialscore.client.impl.configuration.properties.KafkaPropertiesImpl;
-import com.socialscore.client.impl.deserializer.SocialScoreParamsProtoDeserializer;
+import com.socialscore.client.impl.serializer.SocialScoreParamsProtoSerializer;
 
 @ComponentScan(basePackageClasses = SocialScorePublisherClientImpl.class)
 @Configuration
@@ -39,7 +39,7 @@ public class SocialScorePublisherClientConfiguration {
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, SocialScoreParamsProtoDeserializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, SocialScoreParamsProtoSerializer.class);
 
         return new DefaultKafkaProducerFactory<>(config);
     }

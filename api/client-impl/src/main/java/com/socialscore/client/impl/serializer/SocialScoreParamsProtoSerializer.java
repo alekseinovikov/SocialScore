@@ -1,4 +1,4 @@
-package com.socialscore.client.impl.deserializer;
+package com.socialscore.client.impl.serializer;
 
 import org.apache.kafka.common.serialization.Serializer;
 
@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 
-public class SocialScoreParamsProtoDeserializer implements Serializer<SocialScoreParamsProto> {
+public class SocialScoreParamsProtoSerializer implements Serializer<SocialScoreParamsProto> {
 
     @Override
     public byte[] serialize(final String topic, final SocialScoreParamsProto data) {
