@@ -11,7 +11,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
 import com.socialscore.consumer.application.configuration.SocialScoreConsumerApplicationIntegrationTestConfiguration;
-import com.socialscore.populator.api.dto.SocialScore;
+import com.socialscore.score.consumer.api.dto.SocialScore;
 
 @SpringBootTest(classes = SocialScoreConsumerApplicationIntegrationTestConfiguration.class)
 public class SocialScoreConsumerApplicationIntegrationTest {

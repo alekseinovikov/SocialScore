@@ -19,9 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.socialscore.consumer.service.calculator.SocialScoreCalculator;
 import com.socialscore.consumer.service.calculator.dto.SocialRatingData;
-import com.socialscore.populator.api.SocialScorePopulator;
-import com.socialscore.server.api.SocialScoreConsumerClient;
-import com.socialscore.server.api.dto.SocialScoreParams;
+import com.socialscore.score.consumer.api.ScoreConsumer;
+import com.socialscore.consumer.api.SocialScoreConsumerClient;
+import com.socialscore.consumer.api.dto.SocialScoreParams;
 
 @ExtendWith(MockitoExtension.class)
 class ConsumerServiceImplTest {
@@ -36,13 +36,13 @@ class ConsumerServiceImplTest {
     private SocialScoreConsumerClient socialScoreConsumerClient;
 
     @Spy
-    private final List<SocialScorePopulator> populators = new ArrayList<>();
+    private final List<ScoreConsumer> populators = new ArrayList<>();
 
     @Mock
-    private SocialScorePopulator firstPopulator;
+    private ScoreConsumer firstPopulator;
 
     @Mock
-    private SocialScorePopulator secondPopulator;
+    private ScoreConsumer secondPopulator;
 
 
     @BeforeEach
@@ -95,8 +95,8 @@ class ConsumerServiceImplTest {
 
         //assert
         verify(socialScoreCalculator, Mockito.times(1)).calculate(params);
-        verify(firstPopulator, times(1)).populate(socialRatingData);
-        verify(secondPopulator, times(1)).populate(socialRatingData);
+        verify(firstPopulator, times(1)).consume(socialRatingData);
+        verify(secondPopulator, times(1)).consume(socialRatingData);
     }
 
 }

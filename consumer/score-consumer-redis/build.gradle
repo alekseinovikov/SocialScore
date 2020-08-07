@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(":consumer:score-consumer-api")
+
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("redis.clients:jedis")
+}

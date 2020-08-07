@@ -16,8 +16,8 @@ import org.testcontainers.containers.KafkaContainer;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
-import com.socialscore.client.impl.configuration.properties.KafkaProperties;
-import com.socialscore.client.impl.configuration.properties.KafkaPropertiesImpl;
+import com.socialscore.producer.impl.configuration.properties.KafkaProperties;
+import com.socialscore.producer.impl.configuration.properties.KafkaPropertiesImpl;
 import com.socialscore.provider.application.SocialScoreProviderApplication;
 
 @Import(SocialScoreProviderApplication.class)

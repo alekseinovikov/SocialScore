@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(":consumer:score-consumer-api")
+
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
+}

@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(":api:producer-api")
+    implementation project(":api:proto")
+
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation("org.springframework.kafka:spring-kafka")
+}

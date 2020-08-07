@@ -1,6 +1,6 @@
 package com.socialscore.provider.service.impl;
 
-import com.socialscore.client.api.dto.SocialScoreParams;
+import com.socialscore.producer.api.dto.SocialScoreParams;
 
 import lombok.Value;
 

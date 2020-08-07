@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.socialscore.server.api.dto.SocialScoreParams;
+import com.socialscore.consumer.api.dto.SocialScoreParams;
 
 @ExtendWith(MockitoExtension.class)
 class SocialScoreCalculatorImplTest {

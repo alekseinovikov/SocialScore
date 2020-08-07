@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    runtimeOnly project(":consumer:populator-console")
-    runtimeOnly project(":consumer:populator-redis")
+    runtimeOnly project(":consumer:score-consumer-console")
+    runtimeOnly project(":consumer:score-consumer-redis")
     runtimeOnly project(":consumer:service")
-    runtimeOnly project(":api:server-impl")
+    runtimeOnly project(":api:consumer-impl")
 
     implementation 'org.springframework.boot:spring-boot-starter'
 
@@ -16,8 +16,8 @@ dependencies {
     intTestImplementation "org.springframework.boot:spring-boot-starter-data-redis"
     intTestImplementation "com.fasterxml.jackson.core:jackson-databind"
 
-    intTestImplementation project(":api:server-impl")
-    intTestImplementation project(":consumer:populator-redis")
-    intTestImplementation project(":consumer:populator-api")
+    intTestImplementation project(":api:consumer-impl")
+    intTestImplementation project(":consumer:score-consumer-redis")
+    intTestImplementation project(":consumer:score-consumer-api")
     intTestImplementation project(":api:proto")
 }

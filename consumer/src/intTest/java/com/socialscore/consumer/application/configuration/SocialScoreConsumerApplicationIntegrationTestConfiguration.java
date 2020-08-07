@@ -3,9 +3,7 @@ package com.socialscore.consumer.application.configuration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
-import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -22,9 +20,9 @@ import org.testcontainers.containers.KafkaContainer;
 
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
 import com.socialscore.consumer.application.SocialScoreConsumerApplication;
-import com.socialscore.populator.impl.configuration.properties.RedisProperties;
-import com.socialscore.server.impl.configuration.properties.KafkaProperties;
-import com.socialscore.server.impl.configuration.properties.KafkaPropertiesImpl;
+import com.socialscore.consumer.impl.configuration.properties.KafkaProperties;
+import com.socialscore.consumer.impl.configuration.properties.KafkaPropertiesImpl;
+import com.socialscore.score.consumer.impl.configuration.properties.RedisProperties;
 
 @Configuration
 @Import(SocialScoreConsumerApplication.class)

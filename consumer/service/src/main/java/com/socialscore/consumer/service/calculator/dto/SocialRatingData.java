@@ -1,6 +1,6 @@
 package com.socialscore.consumer.service.calculator.dto;
 
-import com.socialscore.populator.api.dto.SocialScore;
+import com.socialscore.score.consumer.api.dto.SocialScore;
 
 import lombok.Value;
 

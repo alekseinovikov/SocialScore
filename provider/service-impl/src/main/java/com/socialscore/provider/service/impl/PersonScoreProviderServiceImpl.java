@@ -2,8 +2,8 @@ package com.socialscore.provider.service.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.socialscore.client.api.SocialScorePublisherClient;
-import com.socialscore.client.api.dto.SocialScoreParams;
+import com.socialscore.producer.api.SocialScoreProducer;
+import com.socialscore.producer.api.dto.SocialScoreParams;
 import com.socialscore.provider.service.api.PersonScoreProviderService;
 import com.socialscore.provider.service.api.dto.PersonData;
 import com.socialscore.provider.service.impl.params.CalculationParamsProvider;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class PersonScoreProviderServiceImpl implements PersonScoreProviderService {
 
     private final CalculationParamsProvider paramsProvider;
-    private final SocialScorePublisherClient publisher;
+    private final SocialScoreProducer publisher;
 
 
     @Override

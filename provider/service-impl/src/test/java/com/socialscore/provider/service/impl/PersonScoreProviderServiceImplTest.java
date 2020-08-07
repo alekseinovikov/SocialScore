@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.socialscore.client.api.SocialScorePublisherClient;
+import com.socialscore.producer.api.SocialScoreProducer;
 import com.socialscore.provider.service.api.dto.PersonData;
 import com.socialscore.provider.service.impl.params.CalculationParamsProvider;
 
@@ -21,7 +21,7 @@ class PersonScoreProviderServiceImplTest {
     private CalculationParamsProvider propertiesProvider;
 
     @Mock
-    private SocialScorePublisherClient publisher;
+    private SocialScoreProducer publisher;
 
     @InjectMocks
     private PersonScoreProviderServiceImpl service;

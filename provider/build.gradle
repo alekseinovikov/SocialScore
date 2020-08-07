@@ -5,13 +5,13 @@ plugins {
 dependencies {
     runtimeOnly project(":provider:rest")
     runtimeOnly project(":provider:service-impl")
-    runtimeOnly project(":api:client-impl")
+    runtimeOnly project(":api:producer-impl")
 
     implementation 'org.springframework.boot:spring-boot-starter'
 
     intTestImplementation "org.testcontainers:kafka:${testcontainer_kafka_version}"
     intTestImplementation 'org.springframework.boot:spring-boot-starter-web'
     intTestImplementation "org.apache.kafka:kafka-clients:${kafka_java_client_version}"
-    intTestImplementation project(":api:client-impl")
+    intTestImplementation project(":api:producer-impl")
     intTestImplementation project(":api:proto")
 }

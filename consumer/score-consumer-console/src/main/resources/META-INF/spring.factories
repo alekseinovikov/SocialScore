@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.socialscore.score.consumer.impl.configuration.SocialScoreConsoleConsumerConfiguration
