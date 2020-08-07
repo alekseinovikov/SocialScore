@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.socialscore.provider.rest.configuration.SocialScoreProviderRestConfiguration;
 import com.socialscore.provider.rest.request.PersonRegisterRequest;
 import com.socialscore.provider.service.api.PersonScoreProviderService;
-
-@Tag("unit")
 
 @ContextConfiguration(classes = SocialScoreProviderRestConfiguration.class)
 @WebMvcTest(controllers = PersonRegisterController.class)

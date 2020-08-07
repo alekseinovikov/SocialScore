@@ -67,10 +67,7 @@ subprojects {
     }
 
     test {
-        useJUnitPlatform {
-            excludeTags("integration")
-            includeTags("unit")
-        }
+        useJUnitPlatform()
     }
 
     //Independent of check task to run it separately as heavy tests with testcontainers
@@ -81,10 +78,7 @@ subprojects {
         testClassesDirs = sourceSets.intTest.output.classesDirs
         classpath = sourceSets.intTest.runtimeClasspath
 
-        useJUnitPlatform {
-            includeTags("integration")
-            excludeTags("unit")
-        }
+        useJUnitPlatform()
     }
 
 }

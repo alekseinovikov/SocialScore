@@ -4,7 +4,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,7 +14,6 @@ import com.socialscore.client.api.SocialScorePublisherClient;
 import com.socialscore.provider.service.api.dto.PersonData;
 import com.socialscore.provider.service.impl.params.CalculationParamsProvider;
 
-@Tag("unit")
 @ExtendWith(MockitoExtension.class)
 class PersonScoreProviderServiceImplTest {
 

@@ -8,7 +8,6 @@ import java.util.List;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +20,6 @@ import org.springframework.http.MediaType;
 import com.socialscore.client.api.proto.SocialScoreParamsProto;
 import com.socialscore.provider.application.configuration.SocialScoreProviderApplicationIntegrationTestConfiguration;
 
-@Tag("integration")
 @SpringBootTest(classes = SocialScoreProviderApplicationIntegrationTestConfiguration.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SocialScoreProviderApplicationIntegrationTest {
 

@@ -1,18 +1,17 @@
 package com.socialscore.server.impl;
 
-import com.socialscore.client.api.proto.SocialScoreParamsProto;
-import com.socialscore.server.api.dto.SocialScoreParams;
-import com.socialscore.server.impl.dto.SocialScoreParamsImpl;
-import org.junit.jupiter.api.Tag;
+import java.util.function.Consumer;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.function.Consumer;
+import com.socialscore.client.api.proto.SocialScoreParamsProto;
+import com.socialscore.server.api.dto.SocialScoreParams;
+import com.socialscore.server.impl.dto.SocialScoreParamsImpl;
 
-@Tag("unit")
 @ExtendWith(MockitoExtension.class)
 class SocialScoreConsumerServerImplTest {
 
@@ -35,11 +34,11 @@ class SocialScoreConsumerServerImplTest {
         consumerServer.subscribe(consumer);
 
         final SocialScoreParamsProto protoMessage = SocialScoreParamsProto.newBuilder()
-                .setFirstName("firstName")
-                .setLastName("lastName")
-                .setAge(33)
-                .setSeed(0.5)
-                .build();
+                                                                          .setFirstName("firstName")
+                                                                          .setLastName("lastName")
+                                                                          .setAge(33)
+                                                                          .setSeed(0.5)
+                                                                          .build();
 
         final SocialScoreParamsImpl expectedMessage = new SocialScoreParamsImpl("firstName", "lastName", 33, 0.5);
 
@@ -63,11 +62,11 @@ class SocialScoreConsumerServerImplTest {
         consumerServer.subscribe(consumer3);
 
         final SocialScoreParamsProto protoMessage = SocialScoreParamsProto.newBuilder()
-                .setFirstName("firstName")
-                .setLastName("lastName")
-                .setAge(33)
-                .setSeed(0.5)
-                .build();
+                                                                          .setFirstName("firstName")
+                                                                          .setLastName("lastName")
+                                                                          .setAge(33)
+                                                                          .setSeed(0.5)
+                                                                          .build();
 
         final SocialScoreParamsImpl expectedMessage = new SocialScoreParamsImpl("firstName", "lastName", 33, 0.5);
 
