@@ -9,4 +9,15 @@ dependencies {
     runtimeOnly project(":api:server-impl")
 
     implementation 'org.springframework.boot:spring-boot-starter'
+
+    intTestImplementation "org.testcontainers:kafka:${testcontainer_kafka_version}"
+    intTestImplementation "org.springframework.kafka:spring-kafka"
+    intTestImplementation "org.apache.kafka:kafka-clients:${kafka_java_client_version}"
+    intTestImplementation "org.springframework.boot:spring-boot-starter-data-redis"
+    intTestImplementation "com.fasterxml.jackson.core:jackson-databind"
+
+    intTestImplementation project(":api:server-impl")
+    intTestImplementation project(":consumer:populator-redis")
+    intTestImplementation project(":consumer:populator-api")
+    intTestImplementation project(":api:proto")
 }

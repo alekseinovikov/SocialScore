@@ -27,7 +27,7 @@ public class SocialScoreConsumerServerConfiguration {
 
     @ConditionalOnMissingBean
     @Bean
-    public KafkaProperties kafkaProperties(final org.springframework.boot.autoconfigure.kafka.KafkaProperties kafkaPropertiesSpring,
+    public KafkaProperties kafkaServerProperties(final org.springframework.boot.autoconfigure.kafka.KafkaProperties kafkaPropertiesSpring,
                                            @Value("${kafka.topic}") final String topic) {
         final KafkaPropertiesImpl kafkaProperties = new KafkaPropertiesImpl();
 

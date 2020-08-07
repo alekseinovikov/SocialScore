@@ -1,6 +1,8 @@
 package com.socialscore.populator.api.dto;
 
-public interface SocialScore {
+import java.io.Serializable;
+
+public interface SocialScore extends Serializable {
     String getFirstName();
     String getLastName();
     double getScore();
