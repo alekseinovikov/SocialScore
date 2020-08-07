@@ -1,3 +1,6 @@
 dependencies {
     implementation project(":consumer:populator-api")
+    implementation project(":api:server-api")
+
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
 }
